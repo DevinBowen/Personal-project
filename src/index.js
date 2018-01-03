@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './reset.css';
-import './main.css';
+import './css/reset.css';
+import './css/main.css';
+import './css/billingCss.css'
 import {HashRouter} from 'react-router-dom';
 
 ReactDOM.render(
