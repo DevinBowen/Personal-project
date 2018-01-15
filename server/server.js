@@ -1,7 +1,9 @@
 const bodyParser = require('body-parser')
     ,express = require('express')
     ,cors = require('cors')
-    ,massive = require('massive');
+    ,massive = require('massive')
+    // ,stripe = require('stripe')('sk_test_bB2Pdjh2RgNHzdrlzUMXjYlU')
+    // ,hbs = require('hbs');
 require('dotenv').config();
 
 const app = express();
