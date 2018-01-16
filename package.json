@@ -3,16 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.17.1",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
-    "massive": "^4.5.0",
+    "massive": "^4.6.3",
     "react": "^16.2.0",
+    "react-day-picker": "^7.0.7",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
     "react-script-loader": "0.0.1",
     "react-scripts": "1.0.17",
+    "react-stripe-checkout": "^2.6.3",
     "stripe": "^5.4.0"
   },
   "scripts": {
@@ -23,6 +26,7 @@
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
   "main": "server/server.js",
+  "proxy": "http://localhost:5000",
   "devDependencies": {},
   "repository": {
     "type": "git",
