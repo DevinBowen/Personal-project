@@ -14,37 +14,39 @@ export default class Calandar extends Component {
 
   }
 
-
-  componentDidMount() {
-    axios.get('/api/avalable').then(res => {
-      // console.log(res.data)
-      this.setState({ avalable: res.data })
-    })
-  }
+// -------------dont need anymore
+  // componentDidMount() {
+  //   axios.get('/api/avalable').then(res => {
+  //     console.log(res.data)
+  //     this.setState({ avalable: res.data })
+  //   })
+  // }
 
 
 
 
   render() {
-    console.log(this.state.avalable)
-    var availabeList = this.state.avalable.map(available => (
-      <div key={available.id}>
-        {available.avalable}
-        <br/>
-        {available.date} 
-        {available.dentist} 
-        {available.name} 
-        {available.office} 
-        {available.time}
-        <br/>
 
-      </div>))
+    //-------------dont need anymore
+    // console.log(this.state.avalable)
+    // var availabeList = this.state.avalable.map(available => (
+    //   <div key={available.id}>
+    //     {available.avalable}
+    //     <br/>
+    //     {available.date} 
+    //     {available.dentist} 
+    //     {available.name} 
+    //     {available.office} 
+    //     {available.time}
+    //     <br/>
+
+    //   </div>))
     return (
       <div>
         <Cal />
       <div>
 
-          {availabeList}
+          {/* {availabeList} */}
         </div>
       </div>
     );

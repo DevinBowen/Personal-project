@@ -1,6 +1,7 @@
 import React from 'react';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
+import axios from 'axios';
 
 const currentYear = new Date().getFullYear();
 const fromMonth = new Date(currentYear, 0);
@@ -47,13 +48,22 @@ export default class Cal extends React.Component {
     this.state = {
       month: fromMonth,
       selectedDay: null,
+      avalable: [],
     };
   }
+
+
 
   handleDayClick(day, { selected }) {
     this.setState({
       selectedDay: selected ? undefined : day,
     })
+    var selDay = (day.getMonth() + 1) + "/" + day.getDate() + "/" + day.getFullYear()
+    axios.get('/api/avalable/test?date='+selDay).then(res => {
+      console.log(res.data)
+      this.setState({ avalable: res.data })
+    })
+    console.log(selDay)
   }
 
   handleYearMonthChange(month) {
@@ -61,6 +71,21 @@ export default class Cal extends React.Component {
   }
 
   render() {
+
+    console.log(this.state.avalable)
+    var availabeList = this.state.avalable.map(available => (
+      <div key={available.id}>
+        {available.avalable}
+        <br/>
+        {available.date} 
+        {available.dentist} 
+        {available.name} 
+        {available.office} 
+        {available.time}
+        <br/>
+
+      </div>))
+
     return (
       <div className="YearNavigation">
         <DayPicker
@@ -84,6 +109,7 @@ export default class Cal extends React.Component {
           }
           {console.log(this.state.selectedDay)}
         </p>
+          {availabeList}
       </div>
     );
   }

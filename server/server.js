@@ -17,6 +17,14 @@ app.use( cors() );
 
 app.get('/api/avalable', controller.getAvalable);
 
+app.get('/api/avalable/test', function(req,res,next) {
+  var time = req.query.date
+  console.log(time)
+  const db = req.app.get('db');
+  db.test([time]).then(events => {
+    res.status(200).send(events)
+})
+})
 
 
 
