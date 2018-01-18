@@ -6,6 +6,7 @@ export default class Home extends Component {
   render() {
     return (
       <div>
+        
         <div>
           Certified Registered Nurse Anesthetists and Anesthesiologists providing ultimate comfort in IV (Intravenous) Sedation at your Dental Office or Surgery Center:
         </div>

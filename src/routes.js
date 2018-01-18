@@ -4,12 +4,15 @@ import Home from './components/Home';
 import Calandar from './components/Calandar';
 import Billing from './components/Billing';
 import Contact from './components/Contact';
+import Private from './components/Private';
 
 
 export default (
     <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/calandar' component={Calandar} />
+        {/* <Route path='/calandar/private' component={} /> */}
+        <Route path="/private" component={Private} />
         <Route path='/contact' component={Contact} />
         <Route path='/billing' component={Billing} />
 
