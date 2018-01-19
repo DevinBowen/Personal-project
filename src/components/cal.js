@@ -82,6 +82,8 @@ export default class Cal extends React.Component {
         {available.name} 
         {available.office} 
         {available.time}
+        {available.start}
+        {available.end}
         <br/>
 
       </div>))

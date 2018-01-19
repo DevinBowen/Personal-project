@@ -12,5 +12,16 @@ module.exports = {
         db.delete_event([id]).then(events => {
             res.status(200).send(events)
         })
+    },
+    addTime: (req,res) => {
+        var date = req.date;
+        var dentist = req.dentist;
+        var start = req.start;
+        var end = req.end;
+        var avalable = req.avalaible;
+        const db = req.app.get('db');
+        db.update_event([id]).then(events => {
+            res.status(200).send(events)
+        })
     }
 }

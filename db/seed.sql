@@ -32,6 +32,20 @@ avalable boolean
 -- insert into event (
 -- dentist,
 -- date,
+-- start,
+-- "end",
+-- avalable
+-- ) values (
+-- 'devin',
+-- '1/26/2018',
+-- '01:30 pm',
+-- '02:00 pm',
+-- false
+-- )
+
+-- insert into event (
+-- dentist,
+-- date,
 -- time,
 -- avalable
 -- ) values (

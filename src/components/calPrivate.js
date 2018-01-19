@@ -49,6 +49,7 @@ export default class CalPrivate extends React.Component {
       month: fromMonth,
       selectedDay: null,
       avalable: [],
+      index: "",
     };
   }
 
@@ -59,7 +60,7 @@ export default class CalPrivate extends React.Component {
       selectedDay: selected ? undefined : day,
     })
     var selDay = (day.getMonth() + 1) + "/" + day.getDate() + "/" + day.getFullYear()
-    axios.get('/api/avalable/test?date='+selDay).then(res => {
+    axios.get('/api/avalable/test?date=' + selDay).then(res => {
       console.log(res.data)
       this.setState({ avalable: res.data })
     })
@@ -72,23 +73,45 @@ export default class CalPrivate extends React.Component {
 
   handleDeleteClick(id) {
 
-    axios.delete('/api/delete?id='+id)
+    axios.delete('/api/delete?id=' + id)
+
+    var day = this.state.selectedDay;
+
+    var selDay = (day.getMonth() + 1) + "/" + day.getDate() + "/" + day.getFullYear()
+    axios.get('/api/avalable/test?date=' + selDay).then(res => {
+      console.log(res.data)
+      this.setState({ avalable: res.data })
+    })
+    console.log(selDay)
   }
 
-  render() {
+  handleUpdateClick() {
+    axios.update('/api/avalable/addTime?update=')
+  }
 
+  handleChange(name, e){
+    var change = {};
+    change[name] = e.target.value;
+    this.setState(change);
+  }
+
+
+  render() {
+    // console.log(this.state.selectedDay)
     console.log(this.state.avalable)
     var availabeList = this.state.avalable.map(available => (
       <div key={available.id}>
         {available.avalable}
-        <br/>
-        {available.date} 
-        {available.dentist} 
-        {available.name} 
-        {available.office} 
+        <br />
+        {available.date}
+        {available.dentist}
+        {available.name}
+        {available.office}
         {available.time}
-        <button onClick={()=>this.handleDeleteClick(available.id)} >DELETE</button>
-        <br/>
+        {available.start}
+        {available.end}
+        <button onClick={() => this.handleDeleteClick(available.id)} >DELETE</button>
+        <br />
 
       </div>))
 
@@ -115,8 +138,56 @@ export default class CalPrivate extends React.Component {
           }
           {console.log(this.state.selectedDay)}
         </p>
-          {availabeList}
-      </div>
+        {availabeList}
+
+        <div className="addTime">
+          Date:<input type="text" placeholder="m/d/yyyy" name="date" title="date m/d/yyyy format" maxLength="10" pattern="([1-9]|1[012])[- /.]([1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" />
+          Dentist:<input placeholder="Dentist Name" />
+          Start:<input type="time" />
+          End:<input type="time" />
+          Open:<input type="radio" name="true" value="true" />Avalaible
+            <input type="radio" name="false" value="false" />Unavalaible
+          <button>SUBMIT</button>
+        </div>
+
+        <div className="addOffice">
+          <h1>Add Office</h1>
+          Office:<input placeholder="Office Name" />
+          Dentist:<input placeholder="Dentist Name" />
+          <button>SUBMIT</button>
+        </div>
+
+
+        {/* <form className="addTime" action="/api/addTime" method="post">
+          <h1>Add Time</h1>
+          <div>
+            <label htmlFor="date">Date:</label>
+            <input type="text" placeholder="m/d/yyyy" name="date" title="date m/d/yyyy format" maxLength="10" pattern="([1-9]|1[012])[- /.]([1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" />
+          </div>
+          <div>
+            <label htmlFor="dentist">Dentist:</label>
+            <input placeholder="Dentist Name" />
+          </div>
+          <div>
+            <label htmlFor="start">Start:</label>
+            <input type="time" />
+          </div>
+          <div>
+            <label htmlFor="end">End:</label>
+            <input type="time" />
+          </div>
+          <div>
+            <label htmlFor="avalaible">Open:</label>
+            <input type="radio" name="true" value="true" />Avalaible
+            <input type="radio" name="false" value="false" />Unavalaible
+          </div>
+          <div>
+            <button type="submit">SUBMIT</button>
+          </div>
+        </form>*/}
+
+
+      </div >
     );
   }
 }
