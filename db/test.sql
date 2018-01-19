@@ -1,3 +1,3 @@
-select * from event
-join dentist on event.dentist = dentist.name
-where avalable is false and date = $1;
+select e.id, e.dentist, e.date, e.time, d.office from event as e
+join dentist as d on e.dentist = d.name
+where e.avalable is false and e.date = $1;

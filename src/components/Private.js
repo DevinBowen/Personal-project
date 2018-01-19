@@ -2,15 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getUserInfo } from '../ducks/users';
 import CalPrivate from './calPrivate';
+import axios from 'axios';
 
 class Private extends React.Component {
 
+    componentDidMount() {
+
+        axios.get('/auth/authorized').catch(error => {this.props.history.push('/calandar') })
+
+    }
 
 
 
-    
     render() {
-        const user = this.props.user;
+        // const user = this.props.user;
 
         return (
             <div className=''>

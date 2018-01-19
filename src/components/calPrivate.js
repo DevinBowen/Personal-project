@@ -70,6 +70,11 @@ export default class CalPrivate extends React.Component {
     this.setState({ month });
   }
 
+  handleDeleteClick(id) {
+
+    axios.delete('/api/delete?id='+id)
+  }
+
   render() {
 
     console.log(this.state.avalable)
@@ -82,7 +87,7 @@ export default class CalPrivate extends React.Component {
         {available.name} 
         {available.office} 
         {available.time}
-        <button>DELETE</button>
+        <button onClick={()=>this.handleDeleteClick(available.id)} >DELETE</button>
         <br/>
 
       </div>))

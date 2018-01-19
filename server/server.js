@@ -70,7 +70,7 @@ app.get('/auth/callback', passport.authenticate('auth0', {
 }));
 app.get('/auth/me', (req,res) => {
     if (!req.user) {
-        res.status(404).send('user not found');
+        res.status(404).send(false);
     } else {
         res.status(200).send(req.user);
     }
@@ -78,7 +78,15 @@ app.get('/auth/me', (req,res) => {
 
 app.get('/auth/logout', function(req,res) {
     req.logOut();
-    res.redirect('http://localhost:4000/')
+    res.redirect('http://localhost:5000/')
+})
+
+app.get('/auth/authorized', (req, res) => { 
+  if(!req.user) { 
+    return res.status(403).send(false)
+  } else {
+    return res.status(200).send(req.user);
+  }
 })
 
 
@@ -97,6 +105,8 @@ app.get('/api/avalable/test', function (req, res, next) {
     res.status(200).send(events)
   })
 })
+
+app.delete('/api/delete', controller.delete);
 
 
 
