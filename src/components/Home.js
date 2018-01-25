@@ -10,9 +10,11 @@ export default class Home extends Component {
         <div>
           Certified Registered Nurse Anesthetists and Anesthesiologists providing ultimate comfort in IV (Intravenous) Sedation at your Dental Office or Surgery Center:
         </div>
+        <br />
         <div>
           We make any dental treatment possible no matter your level of anxiety.
         </div>
+        <br />
         <div>
           Ultimate Comfort:
           <br />
@@ -20,6 +22,7 @@ export default class Home extends Component {
           <br />
           We provide your IV sedation while your dentist can focus on your dental treatment.
         </div>
+        <br />
         <ul>
           <li>Include dentTIVA® in your next visit to you dentist’s office.</li>
           <li>Have your next dental procedure done while you sleep.</li>

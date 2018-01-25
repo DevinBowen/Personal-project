@@ -50,6 +50,11 @@ export default class CalPrivate extends React.Component {
       selectedDay: null,
       avalable: [],
       index: "",
+      date: '',
+      dentist: '',
+      start: '',
+      end: '',
+      open: '',
     };
   }
 
@@ -92,6 +97,22 @@ export default class CalPrivate extends React.Component {
     var end = '';
     var open = '';
     axios.update('/api/avalable/addTime?update='+date+dentist+start+end+open)
+  }
+
+  handleDateChange() {
+
+  }
+  handleDentistChange() {
+    
+  }
+  handleStartChange() {
+    
+  }
+  handleEndChange() {
+    
+  }
+  handleOpenClick() {
+    
   }
 
 

@@ -6,28 +6,29 @@ class App extends Component {
   render() {
     return (
       <div className="page">
+      
         <section>
 
-
+          
           <header className="head">
             <img src={require("./images/logo_trans.png")} alt="" />
 
-            <div className="headText">
+            {/* <div className="headText">
               Sleep for your smile!
             <br />
               Dental and in-office anesthesia
             <br />
               your iv sedation specialists
-          </div>
+          </div> */}
           </header>
 
 
 
           <nav>
-              <Link to='/' className=''>Home</Link>
-              <Link to='/calandar' className=''>Calandar</Link>
-              <Link to='/contact' className=''>Contact</Link>
-              <Link to='/billing' className=''>Billing</Link>
+              <Link to='/' className='homeL' style={{textDecoration: "none"}}>Home</Link>
+              <Link to='/calandar' className='calL' style={{textDecoration: "none"}}>Calandar</Link>
+              <Link to='/contact' className='conL' style={{textDecoration: "none"}}>Contact</Link>
+              <Link to='/billing' className='bilL' style={{textDecoration: "none"}}>Billing</Link>
           </nav>
 
 
