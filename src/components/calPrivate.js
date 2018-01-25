@@ -86,14 +86,14 @@ export default class CalPrivate extends React.Component {
   }
 
   handleUpdateClick() {
-    axios.update('/api/avalable/addTime?update=')
+    var date = '';
+    var dentist = '';
+    var start = '';
+    var end = '';
+    var open = '';
+    axios.update('/api/avalable/addTime?update='+date+dentist+start+end+open)
   }
 
-  handleChange(name, e){
-    var change = {};
-    change[name] = e.target.value;
-    this.setState(change);
-  }
 
 
   render() {
@@ -147,7 +147,7 @@ export default class CalPrivate extends React.Component {
           End:<input type="time" />
           Open:<input type="radio" name="true" value="true" />Avalaible
             <input type="radio" name="false" value="false" />Unavalaible
-          <button>SUBMIT</button>
+          <button onClick={() => this.handleUpdateClick()}>SUBMIT</button>
         </div>
 
         <div className="addOffice">
