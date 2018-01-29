@@ -54,7 +54,9 @@ export default class CalPrivate extends React.Component {
       dentist: '',
       start: '',
       end: '',
-      open: null,
+      open: '',
+      office: '',
+      dentistName: '',
     };
   }
 
@@ -98,21 +100,27 @@ export default class CalPrivate extends React.Component {
     var open = this.state.open;
     axios.get(`/api/avalable/addTime?date=${date}&dentist=${dentist}&start=${start}&end=${end}&open=${open}`)
 
+    this.setState({ date: "" })
+    this.setState({ dentist: "" })
+    this.setState({ start: "" })
+    this.setState({ end: "" })
+    this.setState({ open: "" })
+
+    alert('Your event has been added sucessfully.')
+
     var day = this.state.selectedDay;
+    if (day === null) {
+      return
+    } else {
 
-    var selDay = (day.getMonth() + 1) + "/" + day.getDate() + "/" + day.getFullYear()
-    axios.get('/api/avalable/test?date=' + selDay).then(res => {
-      console.log(res.data)
-      this.setState({ avalable: res.data })
-    })
-    console.log(selDay)
-
-    this.setState({date: ""})
-    this.setState({dentist: ""})
-    this.setState({start: ""})
-    this.setState({end: ""})
-    this.setState({open: null})
-
+      var selDay = (day.getMonth() + 1) + "/" + day.getDate() + "/" + day.getFullYear()
+      axios.get('/api/avalable/test?date=' + selDay).then(res => {
+        console.log(res.data)
+        this.setState({ avalable: res.data })
+      })
+      console.log(selDay)
+    }
+    
   }
 
   handleDateChange(event) {
@@ -139,6 +147,27 @@ export default class CalPrivate extends React.Component {
   handleFalseClick() {
     this.setState({ open: false });
     console.log(this.state.open)
+  }
+
+
+
+  handleOfficeClick() {
+    var office = this.state.office;
+    var dentist = this.state.dentistName;
+    axios.get(`/api/avalable/addOffice?office=${office}&dentist=${dentist}`)
+    this.setState({ office: "" })
+    this.setState({ dentistName: "" })
+    alert('Your dentist and office has been added sucessfully.')
+  }
+
+
+  handleOfficeChange(event) {
+    this.setState({ office: event.target.value });
+    console.log(this.state.office)
+  }
+  handleDentistNameChange(event) {
+    this.setState({ dentistName: event.target.value });
+    console.log(this.state.dentistName)
   }
 
 
@@ -199,9 +228,9 @@ export default class CalPrivate extends React.Component {
 
         <div className="addOffice">
           <h1>Add Office</h1>
-          Office:<input placeholder="Office Name" />
-          Dentist:<input placeholder="Dentist Name" />
-          <button>SUBMIT</button>
+          Office:<input placeholder="Office Name" value={this.state.office} onChange={(e) => this.handleOfficeChange(e)} />
+          Dentist:<input placeholder="Dentist Name" value={this.state.dentistName} onChange={(e) => this.handleDentistNameChange(e)} />
+          <button onClick={() => this.handleOfficeClick()} >SUBMIT</button>
         </div>
 
 

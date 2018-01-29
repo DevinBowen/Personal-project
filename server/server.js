@@ -110,6 +110,8 @@ app.delete('/api/delete', controller.delete);
 
 app.get('/api/avalable/addTime', controller.addTime);
 
+app.get('/api/avalable/addOffice', controller.addOffice);
+
 
 
 

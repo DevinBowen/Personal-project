@@ -23,5 +23,13 @@ module.exports = {
         db.update_event([dentist,date,start,end,avalable]).then(events => {
             res.status(200).send(events)
         })
+    },
+    addOffice: (req,res) => {
+        var office = req.query.office;
+        var dentist = req.query.dentist;
+        const db = req.app.get('db');
+        db.update_dentist([dentist,office]).then(events => {
+            res.status(200).send(events)
+        })
     }
 }
