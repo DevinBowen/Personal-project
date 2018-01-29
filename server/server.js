@@ -108,7 +108,7 @@ app.get('/api/avalable/test', function (req, res, next) {
 
 app.delete('/api/delete', controller.delete);
 
-app.post('/api/avalable/addTime', controller.addTime);
+app.get('/api/avalable/addTime', controller.addTime);
 
 
 

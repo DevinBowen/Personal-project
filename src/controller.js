@@ -14,13 +14,13 @@ module.exports = {
         })
     },
     addTime: (req,res) => {
-        var date = req.date;
-        var dentist = req.dentist;
-        var start = req.start;
-        var end = req.end;
-        var avalable = req.avalaible;
+        var date = req.query.date;
+        var dentist = req.query.dentist;
+        var start = req.query.start;
+        var end = req.query.end;
+        var avalable = req.query.open;
         const db = req.app.get('db');
-        db.update_event([id]).then(events => {
+        db.update_event([dentist,date,start,end,avalable]).then(events => {
             res.status(200).send(events)
         })
     }

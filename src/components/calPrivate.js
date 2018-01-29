@@ -54,7 +54,7 @@ export default class CalPrivate extends React.Component {
       dentist: '',
       start: '',
       end: '',
-      open: '',
+      open: null,
     };
   }
 
@@ -91,28 +91,54 @@ export default class CalPrivate extends React.Component {
   }
 
   handleUpdateClick() {
-    var date = '';
-    var dentist = '';
-    var start = '';
-    var end = '';
-    var open = '';
-    axios.update('/api/avalable/addTime?update='+date+dentist+start+end+open)
+    var date = this.state.date;
+    var dentist = this.state.dentist;
+    var start = this.state.start;
+    var end = this.state.end;
+    var open = this.state.open;
+    axios.get(`/api/avalable/addTime?date=${date}&dentist=${dentist}&start=${start}&end=${end}&open=${open}`)
+
+    var day = this.state.selectedDay;
+
+    var selDay = (day.getMonth() + 1) + "/" + day.getDate() + "/" + day.getFullYear()
+    axios.get('/api/avalable/test?date=' + selDay).then(res => {
+      console.log(res.data)
+      this.setState({ avalable: res.data })
+    })
+    console.log(selDay)
+
+    this.setState({date: ""})
+    this.setState({dentist: ""})
+    this.setState({start: ""})
+    this.setState({end: ""})
+    this.setState({open: null})
+
   }
 
-  handleDateChange() {
+  handleDateChange(event) {
+    this.setState({ date: event.target.value });
+    console.log(this.state.date)
+  }
+  handleDentistChange(event) {
+    this.setState({ dentist: event.target.value });
+    console.log(this.state.dentist)
+  }
+  handleStartChange(event) {
+    this.setState({ start: event.target.value });
+    console.log(this.state.start)
+  }
+  handleEndChange(event) {
+    this.setState({ end: event.target.value });
+    console.log(this.state.end)
+  }
+  handleTrueClick() {
+    this.setState({ open: true });
+    console.log(this.state.open)
 
   }
-  handleDentistChange() {
-    
-  }
-  handleStartChange() {
-    
-  }
-  handleEndChange() {
-    
-  }
-  handleOpenClick() {
-    
+  handleFalseClick() {
+    this.setState({ open: false });
+    console.log(this.state.open)
   }
 
 
@@ -162,12 +188,12 @@ export default class CalPrivate extends React.Component {
         {availabeList}
 
         <div className="addTime">
-          Date:<input type="text" placeholder="m/d/yyyy" name="date" title="date m/d/yyyy format" maxLength="10" pattern="([1-9]|1[012])[- /.]([1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" />
-          Dentist:<input placeholder="Dentist Name" />
-          Start:<input type="time" />
-          End:<input type="time" />
-          Open:<input type="radio" name="true" value="true" />Avalaible
-            <input type="radio" name="false" value="false" />Unavalaible
+          Date:<input type="text" value={this.state.date} placeholder="m/d/yyyy" name="date" title="date m/d/yyyy format" maxLength="10" pattern="([1-9]|1[012])[- /.]([1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" onChange={(e) => this.handleDateChange(e)} />
+          Dentist:<input placeholder="Dentist Name" value={this.state.dentist} onChange={(e) => this.handleDentistChange(e)} />
+          Start:<input type="time" value={this.state.start} onChange={(e) => this.handleStartChange(e)} />
+          End:<input type="time" value={this.state.end} onChange={(e) => this.handleEndChange(e)} />
+          Open:<input type="radio" name="open" value={this.state.open} onClick={() => this.handleTrueClick()} />Avalaible
+            <input type="radio" name="open" value={this.state.open} onClick={() => this.handleFalseClick()} />Unavalaible
           <button onClick={() => this.handleUpdateClick()}>SUBMIT</button>
         </div>
 
