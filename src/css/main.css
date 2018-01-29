@@ -6,10 +6,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    display: flex;
+    /* display: flex; */
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -20,18 +17,19 @@ body {
     display: flex;
     justify-content: center;
     font-family: 'Poppins', sans-serif;
-    
+    margin-top:20px;
+    margin-bottom: 20px;
 }
 
 section {
-    background: linear-gradient(to bottom right, rgba(34, 34, 34, 0.85), rgba(255, 238, 221, 0.849));
+    background: linear-gradient(to bottom right, rgba(34, 34, 34, 0.85), rgba(201, 187, 173, 0.849));
     width: 1020px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.85);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.521);
     border-radius: 10px;
 }
 

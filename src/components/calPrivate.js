@@ -3,6 +3,7 @@ import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import axios from 'axios';
 
+
 const currentYear = new Date().getFullYear();
 const fromMonth = new Date(currentYear, 0);
 const toMonth = new Date(currentYear + 10, 11);
@@ -217,6 +218,7 @@ export default class CalPrivate extends React.Component {
         {availabeList}
 
         <div className="addTime">
+        <h1>Add Event</h1>
           Date:<input type="text" value={this.state.date} placeholder="m/d/yyyy" name="date" title="date m/d/yyyy format" maxLength="10" pattern="([1-9]|1[012])[- /.]([1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" onChange={(e) => this.handleDateChange(e)} />
           Dentist:<input placeholder="Dentist Name" value={this.state.dentist} onChange={(e) => this.handleDentistChange(e)} />
           Start:<input type="time" value={this.state.start} onChange={(e) => this.handleStartChange(e)} />
