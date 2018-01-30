@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import {Link} from 'react-router-dom';
 // import axios from 'axios';
 import Cal from './cal';
+import '../css/calandar.css'
 
 export default class Calandar extends Component {
   constructor(props) {
@@ -43,14 +44,12 @@ export default class Calandar extends Component {
     //   </div>))
     return (
       <div>
-        <a href={process.env.REACT_APP_LOGIN}>
+        <div className="button">
+        <a href={process.env.REACT_APP_LOGIN} style={{textDecoration: "none"}}>
                 <button>LOGIN</button>
             </a>
-        <Cal />
-      <div>
-
-          {/* {availabeList} */}
-        </div>
+            </div>
+        <Cal className="cal"/>
       </div>
     );
   }

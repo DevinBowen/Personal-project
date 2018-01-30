@@ -121,7 +121,7 @@ export default class CalPrivate extends React.Component {
       })
       console.log(selDay)
     }
-    
+
   }
 
   handleDateChange(event) {
@@ -193,77 +193,54 @@ export default class CalPrivate extends React.Component {
       </div>))
 
     return (
-      <div className="YearNavigation">
-        <DayPicker
-          selectedDays={this.state.selectedDay}
-          onDayClick={this.handleDayClick}
-          month={this.state.month}
-          fromMonth={fromMonth}
-          toMonth={toMonth}
-          captionElement={({ date, localeUtils }) => (
-            <YearMonthForm
-              date={date}
-              localeUtils={localeUtils}
-              onChange={this.handleYearMonthChange}
+      <div>
+        <div className="YearNavigation">
+          <div className="day">
+            <DayPicker
+              selectedDays={this.state.selectedDay}
               onDayClick={this.handleDayClick}
+              month={this.state.month}
+              fromMonth={fromMonth}
+              toMonth={toMonth}
+              captionElement={({ date, localeUtils }) => (
+                <YearMonthForm
+                  date={date}
+                  localeUtils={localeUtils}
+                  onChange={this.handleYearMonthChange}
+                  onDayClick={this.handleDayClick}
+                />
+              )}
             />
-          )}
-        />
-        <p>
-          {this.state.selectedDay
-            ? this.state.selectedDay.toLocaleDateString() : 'please select a day!'
-          }
-          {console.log(this.state.selectedDay)}
-        </p>
-        {availabeList}
+          </div>
+        </div>
+
+        <div className="events">
+          <p>
+            {this.state.selectedDay
+              ? this.state.selectedDay.toLocaleDateString() : 'please select a day!'
+            }
+            {console.log(this.state.selectedDay)}
+          </p>
+          {availabeList}
+        </div>
 
         <div className="addTime">
-        <h1>Add Event</h1>
+          <h1 id="title">Add Event</h1>
           Date:<input type="text" value={this.state.date} placeholder="m/d/yyyy" name="date" title="date m/d/yyyy format" maxLength="10" pattern="([1-9]|1[012])[- /.]([1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" onChange={(e) => this.handleDateChange(e)} />
           Dentist:<input placeholder="Dentist Name" value={this.state.dentist} onChange={(e) => this.handleDentistChange(e)} />
           Start:<input type="time" value={this.state.start} onChange={(e) => this.handleStartChange(e)} />
           End:<input type="time" value={this.state.end} onChange={(e) => this.handleEndChange(e)} />
           Open:<input type="radio" name="open" value={this.state.open} onClick={() => this.handleTrueClick()} />Avalaible
             <input type="radio" name="open" value={this.state.open} onClick={() => this.handleFalseClick()} />Unavalaible
-          <button onClick={() => this.handleUpdateClick()}>SUBMIT</button>
+          <button className="submit" onClick={() => this.handleUpdateClick()}>SUBMIT</button>
         </div>
 
         <div className="addOffice">
-          <h1>Add Office</h1>
+          <h1 id="title">Add Office</h1>
           Office:<input placeholder="Office Name" value={this.state.office} onChange={(e) => this.handleOfficeChange(e)} />
           Dentist:<input placeholder="Dentist Name" value={this.state.dentistName} onChange={(e) => this.handleDentistNameChange(e)} />
-          <button onClick={() => this.handleOfficeClick()} >SUBMIT</button>
+          <button className="submit" onClick={() => this.handleOfficeClick()} >SUBMIT</button>
         </div>
-
-
-        {/* <form className="addTime" action="/api/addTime" method="post">
-          <h1>Add Time</h1>
-          <div>
-            <label htmlFor="date">Date:</label>
-            <input type="text" placeholder="m/d/yyyy" name="date" title="date m/d/yyyy format" maxLength="10" pattern="([1-9]|1[012])[- /.]([1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" />
-          </div>
-          <div>
-            <label htmlFor="dentist">Dentist:</label>
-            <input placeholder="Dentist Name" />
-          </div>
-          <div>
-            <label htmlFor="start">Start:</label>
-            <input type="time" />
-          </div>
-          <div>
-            <label htmlFor="end">End:</label>
-            <input type="time" />
-          </div>
-          <div>
-            <label htmlFor="avalaible">Open:</label>
-            <input type="radio" name="true" value="true" />Avalaible
-            <input type="radio" name="false" value="false" />Unavalaible
-          </div>
-          <div>
-            <button type="submit">SUBMIT</button>
-          </div>
-        </form>*/}
-
 
       </div >
     );

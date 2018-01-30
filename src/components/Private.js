@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getUserInfo } from '../ducks/users';
 import CalPrivate from './calPrivate';
 import axios from 'axios';
+import '../css/calandar.css'
 
 class Private extends React.Component {
 
@@ -19,8 +20,9 @@ class Private extends React.Component {
 
         return (
             <div className=''>
+                <a href='http://localhost:5000/auth/logout' className="button" style={{textDecoration: "none"}}><button >LOG OUT</button></a>
+                
                 <CalPrivate />
-                <a href='http://localhost:5000/auth/logout'><button>Log out</button></a>
             </div>
         )
     }

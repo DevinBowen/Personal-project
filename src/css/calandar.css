@@ -1,0 +1,103 @@
+.button {
+   display: flex;
+   /* text-align: center; */
+   justify-content: center; 
+}
+
+.button button {
+    height: 40px;
+    width: 150px;
+    border-radius: 2px;
+    border-color: hsl(349, 56%, 31%);
+    background: #d93756;
+    color: #fff;
+    /* padding-bottom: 10px; */
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    /* text-decoration: none; */
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.button button:hover {
+    border: red;
+}
+
+.cal {
+
+}
+
+
+
+
+
+
+
+
+.day {
+display: flex;
+flex-direction: row;
+justify-content: center;
+background-color: rgba(0, 0, 0, 0.37);
+height: 100%;
+width: 300px;
+margin-bottom: 10px;
+margin-top: 10px;
+border: solid;
+}
+
+.events {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+border: solid;
+padding: 10px;
+padding-bottom: 30px;
+background: rgba(0, 0, 0, 0.253);
+}
+
+.DayPicker:not(.DayPicker--interactionDisabled)
+  .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
+  background-color: #494949;
+  border-radius: 50%;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.377);
+}
+
+.addTime {
+display: flex;
+align-items: center;
+justify-content: space-around;
+flex-direction: column;
+width: 100px;
+margin: auto;
+padding-top: 10px;
+}
+
+.addOffice {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 100px;
+    margin: auto;
+    padding-top: 10px;
+}
+
+#title {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.submit {
+    height: 30px;
+    width: 120px;
+    border-radius: 2px;
+    background: darkgray;
+}
+
+.submit:hover {
+    border: black;
+    cursor: pointer;
+}

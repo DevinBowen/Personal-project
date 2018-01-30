@@ -1,0 +1,44 @@
+#yellow {
+    color: rgb(116, 0, 29)
+}
+
+.one {
+    font-size: 30px;
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.row img {
+    display: flex;
+    flex-direction: row;
+    width: 188px;
+    border-radius: 2px;
+    border: solid;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.192)
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.two {
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.three {
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.three ul {
+    list-style-type: circle;
+    color: #ffffff;
+    padding-left: 50px;
+}
+
+.three li {
+    margin: 4px;
+}
