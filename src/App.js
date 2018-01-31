@@ -11,7 +11,7 @@ class App extends Component {
 
           
           <header className="head">
-            <img src={require("./images/logo_trans.png")} alt="" />
+            <img src={require("./images/logo_trans2-1.png")} alt="" />
 
             {/* <div className="headText">
               Sleep for your smile!

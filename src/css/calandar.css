@@ -65,6 +65,13 @@ background: rgba(0, 0, 0, 0.253);
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.377);
 }
 
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+    position: relative;
+    color: #f0f8ff;
+    background-color: rgba(18, 88, 219, 0.61);
+    border-radius: 100%;
+}
+
 .addTime {
 display: flex;
 align-items: center;

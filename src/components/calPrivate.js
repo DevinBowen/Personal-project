@@ -1,7 +1,9 @@
 import React from 'react';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
+import '../css/calSecure.css';
 import axios from 'axios';
+
 
 
 const currentYear = new Date().getFullYear();
@@ -224,24 +226,40 @@ export default class CalPrivate extends React.Component {
           {availabeList}
         </div>
 
-        <div className="addTime">
-          <h1 id="title">Add Event</h1>
-          Date:<input type="text" value={this.state.date} placeholder="m/d/yyyy" name="date" title="date m/d/yyyy format" maxLength="10" pattern="([1-9]|1[012])[- /.]([1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" onChange={(e) => this.handleDateChange(e)} />
-          Dentist:<input placeholder="Dentist Name" value={this.state.dentist} onChange={(e) => this.handleDentistChange(e)} />
-          Start:<input type="time" value={this.state.start} onChange={(e) => this.handleStartChange(e)} />
-          End:<input type="time" value={this.state.end} onChange={(e) => this.handleEndChange(e)} />
-          Open:<input type="radio" name="open" value={this.state.open} onClick={() => this.handleTrueClick()} />Avalaible
+        <div className="box2">
+          <div className="addTime">
+
+            <h1 id="title">Add Event</h1>
+            <div className="date">
+            Date:<input type="text" value={this.state.date} placeholder="m/d/yyyy" name="date" title="date m/d/yyyy format" maxLength="10" pattern="([1-9]|1[012])[- /.]([1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" onChange={(e) => this.handleDateChange(e)} />
+            </div>
+            <div className="dentist">
+              Dentist:<input placeholder="Dentist Name" value={this.state.dentist} onChange={(e) => this.handleDentistChange(e)} />
+            </div>
+            <div className="start">
+            Start:<input type="time" value={this.state.start} onChange={(e) => this.handleStartChange(e)} />
+            </div>
+            <div className="end">
+            End:<input type="time" value={this.state.end} onChange={(e) => this.handleEndChange(e)} />
+            </div>
+            <div className="open">
+            Open:<input type="radio" name="open" value={this.state.open} onClick={() => this.handleTrueClick()} />Avalaible
             <input type="radio" name="open" value={this.state.open} onClick={() => this.handleFalseClick()} />Unavalaible
+            </div>
           <button className="submit" onClick={() => this.handleUpdateClick()}>SUBMIT</button>
-        </div>
+          </div>
 
-        <div className="addOffice">
-          <h1 id="title">Add Office</h1>
-          Office:<input placeholder="Office Name" value={this.state.office} onChange={(e) => this.handleOfficeChange(e)} />
-          Dentist:<input placeholder="Dentist Name" value={this.state.dentistName} onChange={(e) => this.handleDentistNameChange(e)} />
-          <button className="submit" onClick={() => this.handleOfficeClick()} >SUBMIT</button>
+          <div className="addOffice">
+            <h1 id="title">Add Office</h1>
+            <div className="office">
+            Office:<input placeholder="Office Name" value={this.state.office} onChange={(e) => this.handleOfficeChange(e)} />
+            </div>
+            <div className="dent">
+            Dentist:<input placeholder="Dentist Name" value={this.state.dentistName} onChange={(e) => this.handleDentistNameChange(e)} />
+            </div>
+            <button className="submit" onClick={() => this.handleOfficeClick()} >SUBMIT</button>
+          </div>
         </div>
-
       </div >
     );
   }

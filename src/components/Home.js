@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 import '../css/home.css';
-const img1 = require('../images/img_1.jpg');
+// const img1 = require('../images/img_1.jpg');
 
 export default class Home extends Component {
 
@@ -10,7 +10,7 @@ export default class Home extends Component {
       <div>
 
 
-        <div className="one">
+        {/* <div className="one">
           <div>
             Certified Registered Nurse Anesthetists and Anesthesiologists providing <u>ultimate comfort in IV (Intravenous) Sedation</u> at your Dental Office or Surgery Center:
         </div>
@@ -44,7 +44,33 @@ export default class Home extends Component {
             <li>You may never want to undergo any dental procedure without us again.</li>
             <li>Many have and are glad they did.</li>
           </ul>
+        </div> */}
+
+
+        <div className="main">
+          <div className="col">
+            <img src={require("../images/sleep.jpeg")} alt=""/>
+            IV Sedation Dentestry
+          </div>
+          <div className="col">
+          <img src={require("../images/pain.jpg")} alt=""/>
+          Pain Free Procedure
+          </div>
+          <div className="col">
+          <img src={require("../images/money.jpeg")} alt=""/>
+          Inexpensive Vs Hospital Bills
+          </div>
         </div>
+
+        <div className="three">
+          <ul>
+            <li>Include <span id="yellow">dentTIVA®</span> in your next visit to you dentist’s office.</li>
+            <li><span id="yellow">Have your next dental procedure done <u>while you sleep.</u></span></li>
+            <li>You may never want to undergo any dental procedure without us again.</li>
+            <li>Many have and are glad they did.</li>
+          </ul>
+        </div>
+
       </div>
     );
   }

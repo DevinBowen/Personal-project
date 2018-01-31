@@ -42,3 +42,30 @@
 .three li {
     margin: 4px;
 }
+
+
+
+
+/* ----------------------- */
+
+.main {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+
+}
+
+.main img {
+    width: 250px;
+    border: solid;
+    border-radius: 3px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.274);
+    margin: 10px;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}

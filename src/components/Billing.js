@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
+import '../css/billing.css';
 require('dotenv').config();
 // import { Link } from 'react-router-dom';
 
@@ -40,15 +41,35 @@ export default class Billing extends Component {
     
     return (
       <div className="App">
-        <input type="decimal" onChange={(e) => this.updateAmount(e.target.value)} />
+        <div className="warning">
+          Deposite is $200.00 and is require two weeks prior to dental appointment. If the deposite is not recieved, your appointment will be canceled with out notice.
+        </div>
+
+        <div className="pay">
+          <u>Enter payment amount in exact decimal form.</u>
+        </div>
+
+        <input type="decimal" placeholder="000.00" onChange={(e) => this.updateAmount(e.target.value)} />
         {console.log(this.state.amount)}
-        <br />
-        <br />
+
+        
+
+        <div className="stripe">
         <StripeCheckout
           token={this.onToken}
           stripeKey={process.env.REACT_APP_PUBLISHABLE_KEY}
           amount={this.state.amount*100}
         />
+        </div>
+
+        <div className="list">
+          <ol>
+            <li>Enter the exact amount in decimal form of the desired payment amount.</li>
+            <li>Click Pay With Card and ennter the billing information into the popup.</li>
+            <li>Click pay and wait for an email reciept of your payment.</li>
+            <li>If you experience any issues with the billing process pleas contact DentTIVA in order to resolve the problem.</li>
+          </ol>
+        </div>
       </div>
     );
   }

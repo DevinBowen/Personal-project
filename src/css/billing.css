@@ -1,0 +1,55 @@
+.App {
+    display: flex;
+    flex-direction: column;
+}
+
+.warning {
+    border: dashed orange;
+    border-width: 6px;
+    color: orange;
+    background: rgba(255, 255, 255, 0.699);
+    margin: 5px;
+    border-radius: 2px;
+}
+
+input {
+    width: 100px;
+    margin: auto;
+    margin-bottom: 5px;;
+    padding: 5px;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.pay {
+    margin: auto;
+    padding: 10px;
+    color: red;
+    font-style: italic;
+}
+
+.stripe {
+    margin: auto;
+}
+
+ol {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+li {
+    list-style: decimal;
+}
+
+.list {
+    width: 75%;
+    margin: auto;
+    margin-top: 10px;
+    border: solid;
+    padding-left: 30px;
+    padding-right: 30px;
+    background: rgba(0, 0, 0, 0.281);
+    border-radius: 2px;
+}
