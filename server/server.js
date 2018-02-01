@@ -21,6 +21,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+});
+
 
 // -------------------AUTH0----------------------
 passport.use(new Auth0Strategy({
