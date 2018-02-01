@@ -19,13 +19,9 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+app.use(express.static(__dirname+'/../build'));
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.get('*', (req, res)=>{
-  res.sendFile(path.join(__dirname, '../build/index.html'));
-});
-
 
 // -------------------AUTH0----------------------
 passport.use(new Auth0Strategy({
