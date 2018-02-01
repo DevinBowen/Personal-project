@@ -8,6 +8,7 @@ const bodyParser = require('body-parser')
   , passport = require('passport')
   , session = require('express-session')
   , Auth0Strategy = require('passport-auth0')
+  , path = require('path')
 
 
 const app = express();
