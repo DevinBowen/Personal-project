@@ -66,8 +66,8 @@ passport.deserializeUser((id, done) => {
 // ----------------auth0 end points--------
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://5000/#/private',
-    failureRedirect: 'http://5000/#/calandar'
+    successRedirect: '/#/private',
+    failureRedirect: '/#/calandar'
 }));
 app.get('/auth/me', (req,res) => {
     if (!req.user) {
@@ -79,7 +79,7 @@ app.get('/auth/me', (req,res) => {
 
 app.get('/auth/logout', function(req,res) {
     req.logOut();
-    res.redirect('http://5000/')
+    res.redirect('/')
 })
 
 app.get('/auth/authorized', (req, res) => { 
