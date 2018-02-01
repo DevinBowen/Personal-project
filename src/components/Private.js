@@ -20,7 +20,7 @@ class Private extends React.Component {
 
         return (
             <div className=''>
-                <a href='http://localhost:5000/auth/logout' className="button" style={{textDecoration: "none"}}><button >LOG OUT</button></a>
+                <a href='http://auth/logout' className="button" style={{textDecoration: "none"}}><button >LOG OUT</button></a>
                 
                 <CalPrivate />
             </div>
