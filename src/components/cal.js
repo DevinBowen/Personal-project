@@ -78,12 +78,12 @@ export default class Cal extends React.Component {
       <div key={available.id}>
         {available.avalable}
         <br />
-        {available.date}
+        {available.date}--
         {available.dentist}
-        {available.name}
-        {available.office}
+        {available.name}--
+        {available.office}--
         {available.time}
-        {available.start}
+        {available.start}--
         {available.end}
         <br />
 

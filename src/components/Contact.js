@@ -7,9 +7,15 @@ export default class Contacts extends Component {
     return (
       <div>
         <div>
-          contacts
-          body
-
+          Email: info@denttiva.com
+        </div>
+        <br/>
+        <div>
+          Information: (855) 226-3831
+        </div>
+        <br/>
+        <div>
+          Fax: (855) 6310-417
         </div>
       </div>
     );
