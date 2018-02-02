@@ -8,8 +8,8 @@
     height: 40px;
     width: 150px;
     border-radius: 2px;
-    border-color: hsl(349, 56%, 31%);
-    background: #d93756;
+    border-color: hsl(229, 100%, 46%);
+    background: #0a0063;
     color: #fff;
     /* padding-bottom: 10px; */
     display: flex;
@@ -34,10 +34,9 @@
 
 
 
-
 .day {
 display: flex;
-flex-direction: row;
+/* flex-direction: row; */
 justify-content: center;
 background-color: rgba(0, 0, 0, 0.37);
 height: 100%;
@@ -45,6 +44,7 @@ width: 300px;
 margin-bottom: 10px;
 margin-top: 10px;
 border: solid;
+margin-right: 10px;
 }
 
 .events {
@@ -56,6 +56,7 @@ border: solid;
 padding: 10px;
 padding-bottom: 30px;
 background: rgba(0, 0, 0, 0.253);
+margin-left: 10px;
 }
 
 .DayPicker:not(.DayPicker--interactionDisabled)
@@ -80,6 +81,9 @@ flex-direction: column;
 width: 100px;
 margin: auto;
 padding-top: 10px;
+}
+.YearNavigation{
+    flex-direction: row !important;
 }
 
 .addOffice {
@@ -107,4 +111,9 @@ padding-top: 10px;
 .submit:hover {
     border: black;
     cursor: pointer;
+}
+
+a:hover {
+    font-weight: 700;
+    text-shadow: 1px 1px 1px #0a0063;
 }

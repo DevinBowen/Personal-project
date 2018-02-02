@@ -12,6 +12,7 @@ const bodyParser = require('body-parser')
 
 
 const app = express();
+app.use(express.static(__dirname + '/../build'));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(session({
@@ -19,7 +20,6 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
-app.use(express.static(__dirname+'/../build'));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -30,26 +30,26 @@ passport.use(new Auth0Strategy({
   clientSecret: process.env.AUTH_CLIENT_SECRET,
   callbackURL: process.env.AUTH_CALLBACK_URL,
   scope: 'openid profile'
-}, function(accessToken, refresjToken, extraParams, profile, done){
-  let {_json} = profile;
+}, function (accessToken, refresjToken, extraParams, profile, done) {
+  let { _json } = profile;
 
-  let {displayName, user_id, picture} = profile;
+  let { displayName, user_id, picture } = profile;
   const db = app.get('db')
 
-  db.find_user(user_id).then(function(user) {
-      // console.log(user)
-      if (!user[0]) {
-          db.create_user([
-              displayName,
-              'test@email.com',
-              picture,
-              user_id
-          ]).then(user => {
-              return done(null, user[0].id)
-          })
-      } else {
-          return done(null, user[0].id)
-      }
+  db.find_user(user_id).then(function (user) {
+    // console.log(user)
+    if (!user[0]) {
+      db.create_user([
+        displayName,
+        'test@email.com',
+        picture,
+        user_id
+      ]).then(user => {
+        return done(null, user[0].id)
+      })
+    } else {
+      return done(null, user[0].id)
+    }
   })
 
 }))
@@ -58,32 +58,32 @@ passport.serializeUser((id, done) => {
   done(null, id);
 })
 passport.deserializeUser((id, done) => {
-  app.get('db').find_session_user(id).then(function(user) {
-      return done(null,user[0])
+  app.get('db').find_session_user(id).then(function (user) {
+    return done(null, user[0])
   })
 })
 
 // ----------------auth0 end points--------
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: '/#/private',
-    failureRedirect: '/#/calandar'
+  successRedirect: '/#/private',
+  failureRedirect: '/#/calandar'
 }));
-app.get('/auth/me', (req,res) => {
-    if (!req.user) {
-        res.status(404).send(false);
-    } else {
-        res.status(200).send(req.user);
-    }
+app.get('/auth/me', (req, res) => {
+  if (!req.user) {
+    res.status(404).send(false);
+  } else {
+    res.status(200).send(req.user);
+  }
 })
 
-app.get('/auth/logout', function(req,res) {
-    req.logOut();
-    res.redirect('/')
+app.get('/auth/logout', function (req, res) {
+  req.logOut();
+  res.redirect('/')
 })
 
-app.get('/auth/authorized', (req, res) => { 
-  if(!req.user) { 
+app.get('/auth/authorized', (req, res) => {
+  if (!req.user) {
     return res.status(403).send(false)
   } else {
     return res.status(200).send(req.user);

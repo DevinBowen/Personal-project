@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700');
 @import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700');
 body {
-    background-image: url("https://static.pexels.com/photos/69686/pexels-photo-69686.jpeg");
+    background-image: url("../images/db.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -22,7 +22,7 @@ body {
 }
 
 section {
-    background: linear-gradient(to bottom right, rgba(34, 34, 34, 0.85), rgba(201, 187, 173, 0.849));
+    background: linear-gradient(to bottom right, rgba(146, 146, 146, 0.85), rgba(255, 255, 255, 0.849));
     width: 1020px;
     display: flex;
     flex-direction: column;
@@ -34,7 +34,7 @@ section {
 }
 
 .head {
-    background: linear-gradient(to bottom right, #d12c4d, #ff6f80);
+    background: linear-gradient(to bottom right, #113455, #3f82c0);
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -66,12 +66,17 @@ nav {
     color: #fff;
     font-size: 20px;
     font-weight: 400;
-    background: linear-gradient(to bottom right, #d12c4d, #ff6f80);
+    background: linear-gradient(to bottom right, #316596, #4288c9);
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 2px;
     box-shadow: inset 1px 1px 2px #000000c0;
 }
+
+a {
+    color: #fff;
+}
+
 a:visited {
     text-decoration: none;
     color: #fff;
@@ -94,7 +99,7 @@ a:visited {
 .foot {
     width: 1000px;
     height: 40px;
-    background: linear-gradient(to bottom right, #d12c4d, #ff6f80);
+    background: linear-gradient(to bottom right, #316596, #4791d6);
     display: flex;
     align-items: center;
     justify-content: center;

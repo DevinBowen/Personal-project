@@ -1,7 +1,7 @@
 
 .YearNavigation {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     text-align: center;
     /* justify-content: center; */
