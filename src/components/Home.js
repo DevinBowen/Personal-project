@@ -49,15 +49,15 @@ export default class Home extends Component {
 
         <div className="main">
           <div className="col">
-            <img src={require("../images/sleep.jpeg")} alt=""/>
+            <img src="https://res.cloudinary.com/devinobowen/image/upload/v1517604868/sleep_sfpips.jpg" alt=""/>
             IV Sedation Dentestry
           </div>
           <div className="col">
-          <img src={require("../images/pain.jpg")} alt=""/>
+          <img src="https://res.cloudinary.com/devinobowen/image/upload/v1517604867/pain_kwirvz.jpg" alt=""/>
           Pain Free Procedure
           </div>
           <div className="col">
-          <img src={require("../images/money.jpeg")} alt=""/>
+          <img src="https://res.cloudinary.com/devinobowen/image/upload/v1517604867/money_giicnh.jpg" alt=""/>
           Inexpensive Vs Hospital Bills
           </div>
         </div>
