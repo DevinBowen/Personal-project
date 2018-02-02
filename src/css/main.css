@@ -111,3 +111,15 @@ a:visited {
     border-radius: 1px;
     color: #fff
 }
+
+@media (max-width: 768px) {
+
+    .page {
+        width: 375px !important;
+        padding-left: 332px;
+    }
+
+
+}
+
+
