@@ -46,11 +46,11 @@ passport.use(new Auth0Strategy({
         user_id
       ]).then(user => {
         return done(null, user[0].id)
-      })
+      }).catch(console.Error)
     } else {
       return done(null, user[0].id)
     }
-  })
+  }).catch(console.Error)
 
 }))
 
@@ -60,7 +60,7 @@ passport.serializeUser((id, done) => {
 passport.deserializeUser((id, done) => {
   app.get('db').find_session_user(id).then(function (user) {
     return done(null, user[0])
-  })
+  }).catch(console.Error)
 })
 
 // ----------------auth0 end points--------
