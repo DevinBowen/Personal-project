@@ -23,6 +23,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 // -------------------AUTH0----------------------
 passport.use(new Auth0Strategy({
   domain: process.env.AUTH_DOMAIN,
