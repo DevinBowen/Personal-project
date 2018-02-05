@@ -9,7 +9,9 @@ class Private extends React.Component {
 
     componentDidMount() {
 
-        axios.get('/auth/authorized').catch(error => {this.props.history.push('/calandar') })
+        axios.get('/auth/authorized').catch(error => {
+            alert("test");
+            this.props.history.push('/calandar') })
 
     }
 

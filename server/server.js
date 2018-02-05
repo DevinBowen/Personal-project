@@ -68,11 +68,11 @@ passport.deserializeUser((id, done) => {
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
   successRedirect: '/#/private',
-  failureRedirect: '/#/calandar'
+  failureRedirect: '/#/denied'
 }));
 app.get('/auth/me', (req, res) => {
   if (!req.user) {
-    res.status(404).send(false);
+    res.status(401).send(false);
   } else {
     res.status(200).send(req.user);
   }
