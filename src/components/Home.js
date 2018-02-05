@@ -66,8 +66,8 @@ export default class Home extends Component {
           <ul>
             <li>Include <span id="yellow">dentTIVA®</span> in your next visit to you dentist’s office.</li>
             <li><span id="yellow">Have your next dental procedure done <u>while you sleep.</u></span></li>
-            <li>You may never want to undergo any dental procedure without us again.</li>
             <li>Many have and are glad they did.</li>
+            <li>You may never want to undergo any dental procedure without us again.</li>
           </ul>
         </div>
 
