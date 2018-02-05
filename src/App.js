@@ -26,7 +26,7 @@ class App extends Component {
 
           <nav>
               <Link to='/' className='homeL' style={{textDecoration: "none"}}>Home</Link>
-              <Link to='/calandar' className='calL' style={{textDecoration: "none"}}>Calandar</Link>
+              <Link to='/calandar' className='calL' style={{textDecoration: "none"}}>Calendar</Link>
               <Link to='/contact' className='conL' style={{textDecoration: "none"}}>Contact</Link>
               <Link to='/billing' className='bilL' style={{textDecoration: "none"}}>Billing</Link>
           </nav>
