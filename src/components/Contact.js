@@ -5,7 +5,7 @@ export default class Contacts extends Component {
 
   render() {
     return (
-      <div>
+      <div className="contact">
         <div>
           Email: info@denttiva.com
         </div>
