@@ -42,7 +42,7 @@ export default class Billing extends Component {
     return (
       <div className="App">
         <div className="warning">
-          Deposite is $200.00 and is require two weeks prior to dental appointment. If the deposite is not recieved, your appointment will be canceled with out notice.
+          Deposit is $200.00 and is require two weeks prior to dental appointment. If the deposite is not recieved, your appointment will be canceled with out notice.
         </div>
 
         <div className="pay">
